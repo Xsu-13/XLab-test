@@ -12,13 +12,16 @@ public class ProgressBarController : MonoBehaviour
     [Header("Speed of filling")]
     public float maxSpeed;
     private float _speed;
-    public float Speed { 
-        get {
+    public float Speed
+    {
+        get
+        {
             return _speed;
-        } 
-        set {
-            _speed = value; 
-        } 
+        }
+        set
+        {
+            _speed = value;
+        }
     }
 
     void Start()
@@ -35,8 +38,8 @@ public class ProgressBarController : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(transform.position - cam.transform.position);
 
         //Работа слайдера
-        slider.value += Speed*Time.deltaTime;
-        if(slider.value == slider.maxValue && !finished)
+        slider.value += Speed * Time.deltaTime;
+        if (slider.value == slider.maxValue && !finished)
         {
             finished = true;
             menuController.AddFinishMark();
