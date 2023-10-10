@@ -23,8 +23,6 @@ namespace Golf
                 spawner.gameObject.GetComponent<StoneSpawner>().Spawn();
 
             } while (true);
-
-            yield return null;
         }
 
     }
