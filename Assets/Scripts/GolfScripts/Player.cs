@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,14 +7,15 @@ namespace Golf
 {
     public class Player : MonoBehaviour
     {
+        public static Action OnStoneStickCollision;
         public Transform stick;
         public Transform helper;
         bool isDown = false;
         public float range = 30f;
         public float speed = 500f;
-        public float power = 200f;
+        public float power = 20f;
 
-        public Vector3 lastPosition;
+        private Vector3 lastPosition;
 
         private void Update()
         {
@@ -35,6 +37,7 @@ namespace Golf
 
                 if(collider.TryGetComponent(out Stone stone))
                 {
+                    OnStoneStickCollision?.Invoke();
                     stone.isAfect = true;
                 }
             }

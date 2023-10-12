@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 
@@ -12,6 +13,7 @@ namespace Golf
         public float delayMin = 0.5f;
         public float delayStep = 0.1f;
         private float m_delay;
+        public int score { get; private set; } = 0;
 
         private void Start()
         {
@@ -32,10 +34,12 @@ namespace Golf
         }
         private void OnEnable()
         {
+            Player.OnStoneStickCollision += AddScore;
             Stone.onCollisionStone += GameOver;
         }
         private void OnDisable()
         {
+            Player.OnStoneStickCollision -= AddScore;
             Stone.onCollisionStone -= GameOver;
         }
 
@@ -43,7 +47,12 @@ namespace Golf
         {
             Debug.Log("Game Over");
             enabled = false;
+        }
 
+        private void AddScore()
+        {
+            score++;
+            Debug.Log($"Score: {score}");
         }
 
         private void RefreshDelay()
