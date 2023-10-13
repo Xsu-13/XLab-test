@@ -18,7 +18,7 @@ namespace Golf
         private void Update()
         {
             lastPosition = helper.position;
-            isDown = Input.GetMouseButton(0);
+            //isDown = Input.GetMouseButton(0);
 
             Quaternion rot = stick.localRotation;
             Quaternion toRot = Quaternion.Euler(0, 0, isDown ? range : -range);
@@ -26,6 +26,12 @@ namespace Golf
             rot = Quaternion.RotateTowards(rot, toRot, speed * Time.deltaTime);
             stick.localRotation = rot;
         }
+
+        public void SetDown(bool value)
+        {
+            isDown = value;
+        }
+
         public void onCollisionStick(Collider collider)
         {
             if (collider.TryGetComponent(out Rigidbody body))
