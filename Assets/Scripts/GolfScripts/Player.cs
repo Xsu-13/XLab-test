@@ -7,7 +7,10 @@ namespace Golf
 {
     public class Player : MonoBehaviour
     {
-        public static Action OnStoneStickCollision;
+        [SerializeField] GameObject explosionPrefab;
+        [SerializeField] Camera cam;
+        private Vector3 rotationToCam;
+
         public Transform stick;
         public Transform helper;
         bool isDown = false;
@@ -20,7 +23,6 @@ namespace Golf
         private void Update()
         {
             lastPosition = helper.position;
-            //isDown = Input.GetMouseButton(0);
 
             Quaternion rot = stick.localRotation;
             Quaternion toRot = Quaternion.Euler(0, 0, isDown ? range : -range);
@@ -41,9 +43,19 @@ namespace Golf
                 var dir = (helper.position - lastPosition).normalized;
                 body.AddForce(dir*power, ForceMode.Impulse);
 
-                if(collider.TryGetComponent(out Stone stone))
+                if(collider.TryGetComponent(out Stone stone) && !stone.isAfect)
                 {
-                    OnStoneStickCollision?.Invoke();
+                    if (stone.isDanger)
+                    {
+                        rotationToCam = cam.transform.position - this.transform.position;
+                        Instantiate(explosionPrefab, stone.transform.position, Quaternion.LookRotation(rotationToCam));
+                        Destroy(stone.gameObject);
+                        GameEvents.CollisionStones(stone);
+                    }
+                    else
+                    {
+                        GameEvents.StickHit();
+                    }
                     stone.isAfect = true;
                 }
             }

@@ -4,13 +4,11 @@ using UnityEngine;
 
 namespace Golf
 {
-    public class GameStateController : MonoBehaviour
+    public class DangerStone : Stone
     {
-        public MainMenuState mainMenuState;
-        void Start()
+        private void Start()
         {
-
+            isDanger = true;
         }
     }
 }
-

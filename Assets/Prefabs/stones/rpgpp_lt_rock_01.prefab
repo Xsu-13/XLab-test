@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: rpgpp_lt_rock_01
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 305f277e1529222439b495a441de2f0b, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 305f277e1529222439b495a441de2f0b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1
@@ -148,4 +152,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3802cd7f48c5cb44aaa51d1324b87ea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDanger: 0
   isAfect: 0
