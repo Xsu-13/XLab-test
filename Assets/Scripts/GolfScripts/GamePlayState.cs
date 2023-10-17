@@ -13,6 +13,8 @@ namespace Golf
         protected override void OnEnable()
         {
             base.OnEnable();
+
+
             controller.enabled = true;
             player.enabled = true;
         }

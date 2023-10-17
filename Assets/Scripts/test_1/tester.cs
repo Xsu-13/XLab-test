@@ -40,7 +40,7 @@ public class tester : MonoBehaviour
 
 
     //StateGame game;
-    bool isRunning;
+    //bool isRunning;
     bool humanIsSelected;
     [SerializeField]GameObject cloudButton;
     [SerializeField] GameObject AudioRain;
@@ -55,7 +55,7 @@ public class tester : MonoBehaviour
     private void Awake()
     {
         var settingInstance = settingSingletone.GetInstance(settings);
-        isRunning = true;
+        //isRunning = true;
     }
 
     void Start()
