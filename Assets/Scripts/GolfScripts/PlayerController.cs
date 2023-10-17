@@ -17,9 +17,17 @@ namespace Golf
                 Debug.Log("PlayerController: Player is null");
             }
         }
-        void Update()
+
+        public void onDown()
         {
-            player.SetDown(Input.GetMouseButton(0));
+            if (player != null)
+                player.SetDown(true);
+        }
+
+        public void OnUp()
+        {
+            if (player != null)
+                player.SetDown(false);
         }
     }
 }

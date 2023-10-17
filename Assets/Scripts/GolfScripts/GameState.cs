@@ -21,7 +21,10 @@ public abstract class GameState : MonoBehaviour
     {
         foreach(var item in views)
         {
-            item.SetActive(true);
+            if (item != null)
+            {
+                item.SetActive(false);
+            }
         }
     }
 
@@ -29,7 +32,7 @@ public abstract class GameState : MonoBehaviour
     {
         foreach (var item in views)
         {
-            item.SetActive(false);
+            item.SetActive(true);
         }
     }
 }

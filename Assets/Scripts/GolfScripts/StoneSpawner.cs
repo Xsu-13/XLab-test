@@ -5,9 +5,10 @@ using UnityEngine;
 public class StoneSpawner : MonoBehaviour
 {
     public List<GameObject> stones;
-    public void Spawn()
+    public GameObject Spawn()
     {
         int index = Random.Range(0, stones.Count);
-        Instantiate(stones[index], transform.position, Quaternion.identity);
+        var stone = Instantiate(stones[index], transform.position, Quaternion.identity);
+        return stone;
     }
 }

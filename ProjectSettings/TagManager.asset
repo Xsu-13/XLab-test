@@ -15,8 +15,8 @@ TagManager:
   - 3d
   - npc
   - MiningTerritory
-  - 
-  - 
+  - IgnoreGround
+  - Ground
   - 
   - 
   - 
