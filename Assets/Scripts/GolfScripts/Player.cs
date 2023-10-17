@@ -20,7 +20,7 @@ namespace Golf
 
         private Vector3 lastPosition;
 
-        private void Update()
+        private void FixedUpdate()
         {
             lastPosition = helper.position;
 

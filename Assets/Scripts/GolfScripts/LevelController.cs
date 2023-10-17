@@ -10,6 +10,7 @@ namespace Golf
     {
         public StoneSpawner spawner;
         public float delayMax = 2f;
+        public float defaultMaxDelay = 2f;
         public float delayMin = 0.5f;
         public float delayStep = 0.1f;
         private float m_delay;
@@ -46,17 +47,25 @@ namespace Golf
             score = 0;
             StartCoroutine(SpawnStoneProc());
             GameEvents.onStickHit += AddScore;
+            GameEvents.onRestart += ResetDelay;
         }
         private void OnDisable()
         {
             StopAllCoroutines();
             GameEvents.onStickHit -= AddScore;
+            GameEvents.onRestart -= ResetDelay;
         }
 
         private void AddScore()
         {
             score++;
             highScore = Mathf.Max(highScore, score);
+        }
+
+        private void ResetDelay()
+        {
+            m_delay = defaultMaxDelay;
+            delayMax = defaultMaxDelay;
         }
 
         private void RefreshDelay()

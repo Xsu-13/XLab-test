@@ -22,6 +22,7 @@ namespace Golf
         {
             levelController.ClearStones();
             audioSource.Stop();
+            GameEvents.RestartGame();
 
             Exit();
             mainMenuState.Enter();
