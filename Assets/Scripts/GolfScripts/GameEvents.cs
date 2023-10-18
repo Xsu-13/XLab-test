@@ -10,6 +10,8 @@ namespace Golf
         public static event System.Action onStickHit;
         public static event System.Action onRestart;
         public static event System.Action onWin;
+        public static event System.Action onExplosion;
+        public static event System.Action onShaking;
 
         public static void StickHit()
         {
@@ -29,6 +31,16 @@ namespace Golf
         public static void Win()
         {
             onWin?.Invoke();
+        }
+
+        public static void Explose()
+        {
+            onExplosion?.Invoke();
+        }
+
+        public static void Shake()
+        {
+            onShaking?.Invoke();
         }
 
     }

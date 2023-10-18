@@ -11405,6 +11405,7 @@ GameObject:
   - component: {fileID: 1066296356}
   - component: {fileID: 1066296355}
   - component: {fileID: 1066296358}
+  - component: {fileID: 1066296359}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -11530,6 +11531,20 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1066296359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1066296354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66bcc354fce0b754181aec9e678f1718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _positionStrength: {x: 0.8, y: 0.5, z: 0.4}
+  _rotationStrength: {x: 0.7, y: 0.8, z: 0.2}
 --- !u!1 &1066566349
 GameObject:
   m_ObjectHideFlags: 0
@@ -15118,7 +15133,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -22883,6 +22898,7 @@ GameObject:
   - component: {fileID: 2916151947902129309}
   - component: {fileID: 2916151947902129308}
   - component: {fileID: 4705254091332867374}
+  - component: {fileID: 4705254091332867375}
   m_Layer: 0
   m_Name: VillagerFarmer (1)
   m_TagString: Untagged
@@ -25201,6 +25217,19 @@ MonoBehaviour:
   range: 30
   speed: 500
   power: 5
+--- !u!114 &4705254091332867375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2916151947902129306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28473d306665b7b49a64a9d118a166a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 2916151947902129308}
 --- !u!1001 &5422408361720118392
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,12 @@ namespace Golf
         private void Start()
         {
             isDanger = true;
+            Invoke("DestroyStone", 4f);
+        }
+
+        private void DestroyStone()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Golf
         protected override void OnEnable()
         {
             base.OnEnable();
+            GameEvents.Shake();
             audioSource.Play();
         }
 

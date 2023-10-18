@@ -6,5 +6,14 @@ namespace Golf
 {
     public class ExplosionController : MonoBehaviour
     {
+        private void Start()
+        {
+            Invoke("DestroyGameObject", 3f);
+        }
+
+        private void DestroyGameObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

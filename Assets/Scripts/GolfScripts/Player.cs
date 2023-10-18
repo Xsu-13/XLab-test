@@ -50,6 +50,7 @@ namespace Golf
                         rotationToCam = cam.transform.position - this.transform.position;
                         Instantiate(explosionPrefab, stone.transform.position, Quaternion.LookRotation(rotationToCam));
                         Destroy(stone.gameObject);
+                        GameEvents.Explose();
                         GameEvents.CollisionStones(stone);
                     }
                     else
