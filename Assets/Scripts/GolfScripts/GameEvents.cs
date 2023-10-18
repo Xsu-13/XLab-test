@@ -9,6 +9,7 @@ namespace Golf
         public static event System.Action onCollisionStones;
         public static event System.Action onStickHit;
         public static event System.Action onRestart;
+        public static event System.Action onWin;
 
         public static void StickHit()
         {
@@ -24,6 +25,12 @@ namespace Golf
         {
             onRestart?.Invoke();
         }
+
+        public static void Win()
+        {
+            onWin?.Invoke();
+        }
+
     }
 }
 

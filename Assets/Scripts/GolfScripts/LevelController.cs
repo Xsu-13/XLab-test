@@ -17,6 +17,8 @@ namespace Golf
         public int score { get; private set; } = 0;
         public int highScore;
 
+        public int scoreToWin;
+
         private List<GameObject> m_stones = new List<GameObject>(16);
 
         private void Start()
@@ -47,19 +49,26 @@ namespace Golf
             score = 0;
             StartCoroutine(SpawnStoneProc());
             GameEvents.onStickHit += AddScore;
-            GameEvents.onRestart += ResetDelay;
+            GameEvents.onWin += IncreaseScoreToWin;
+            ResetDelay();
         }
         private void OnDisable()
         {
             StopAllCoroutines();
             GameEvents.onStickHit -= AddScore;
-            GameEvents.onRestart -= ResetDelay;
+        }
+
+        public void IncreaseScoreToWin()
+        {
+            scoreToWin = scoreToWin * 3 / 2;
         }
 
         private void AddScore()
         {
             score++;
-            highScore = Mathf.Max(highScore, score);
+            //highScore = Mathf.Max(highScore, score);
+            if (score == scoreToWin)
+                GameEvents.Win();
         }
 
         private void ResetDelay()

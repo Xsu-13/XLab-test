@@ -11,9 +11,10 @@ namespace Golf
         public PlayerController player;
         public AudioSource clip;
         public TMP_Text score;
-        public TMP_Text highScore;
+        public TMP_Text winScore;
 
         public GameState gameOverState;
+        public GameState gameWinState;
 
         protected override void OnEnable()
         {
@@ -25,18 +26,25 @@ namespace Golf
 
             GameEvents.onCollisionStones += OnGameOver;
             GameEvents.onStickHit += StickHit;
+            GameEvents.onWin += OnWin;
         }
 
         private void StickHit()
         {
             score.text = $"Score: {controller.score}";
-            highScore.text = $"High score: {controller.highScore}";
+            winScore.text = $"Score to win: {controller.scoreToWin}";
         }
 
         private void OnGameOver()
         {
             Exit();
             gameOverState.Enter();
+        }
+
+        private void OnWin()
+        {
+            Exit();
+            gameWinState.Enter();
         }
 
         protected override void OnDisable()
